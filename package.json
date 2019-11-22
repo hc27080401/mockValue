@@ -1,0 +1,17 @@
+{
+  "name": "mock-value",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/smartx-work/mockValue.git",
+  "author": "sschen86 <sschen86@163.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node ./playground/",
+    "test": "node ./tests/"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@smartx/eslint-config-tentative": "^1.2.0",
+    "jest": "^24.8.0"
+  }
+}
