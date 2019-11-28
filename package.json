@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "node ./playground/",
-    "test": "node ./tests/"
+    "test": "jest"
   },
   "dependencies": {},
   "devDependencies": {

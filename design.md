@@ -15,11 +15,12 @@
 + integer 整数，默认正整数
 + decimal 小数，默认2位正小数
 + symbol 特殊字符：!@#$%^&*()[]
-+ string 字符串，默认5个中文字
++ string 字符串，默认5个英文
 + range 返回一个区间数组
 
 #### 文本类型
 
++ text 中文文本5个字符
 + word 默认3-5个中文
 + sentence 句子，默认
 + paragraph 段落

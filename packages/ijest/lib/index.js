@@ -1,11 +1,15 @@
+const assert = require('./assert')
 const cacheTests = {}
 const cacheContext = { ijest }
-const util = {
-    placeholder () {
-        expect(true).toBe(false)
+const utils = {
+    assert,
+    tests (title, callback) {
+        describe(`=== ${title} ===`, callback)
     },
-    waitDevelop () {
-        expect(true).toBe(false)
+    test (title, value, asserts) {
+        test(title, () => {
+            asserts(value)
+        })
     },
 }
 
@@ -42,10 +46,11 @@ function start (actives) {
     } else if (typeof actives === 'string') {
         actives = actives.slice(/,\s*/)
     }
-
-    for (const key in cacheTests) {
-        if (actives.includes(key)) {
-            cacheTests[key](cacheContext, util)
+    for (let i = 0; i < 10; i++) {
+        for (const key in cacheTests) {
+            if (actives.includes(key)) {
+                cacheTests[key](cacheContext, utils)
+            }
         }
     }
 }
