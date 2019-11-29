@@ -1,15 +1,33 @@
 const assert = require('./assert')
 const cacheTests = {}
 const cacheContext = { ijest }
+const defaultMultipleCallNum = 10
 const utils = {
     assert,
     tests (title, callback) {
-        describe(`=== ${title} ===`, callback)
+        describe(`\n=== ${title} ===`, callback)
     },
-    test (title, value, asserts) {
-        test(title, () => {
-            asserts(value)
-        })
+    test (title, value, asserts, count) {
+        // test(title, value, asserts) 对value进行一次测试
+        if (typeof value !== 'function' && typeof asserts === 'function') {
+            return test(title, () => {
+                asserts(value)
+            })
+        }
+
+        // test(title, valueGetter, asserts, count) 对valueGetter返回的值进行多次测试
+        if (typeof value === 'function' && typeof asserts === 'function') {
+            return test(title, () => {
+                multipleCall(count || defaultMultipleCallNum, () => asserts(value()))
+            })
+        }
+
+        //  test(title, assert) 使用原生的方式进行测试，一般在场景比较复杂的时候使用
+        if (typeof value === 'function' && typeof asserts !== 'function') {
+            return test(title, value)
+        }
+
+        throw Error('arguments error!')
     },
 }
 
@@ -46,12 +64,17 @@ function start (actives) {
     } else if (typeof actives === 'string') {
         actives = actives.slice(/,\s*/)
     }
-    for (let i = 0; i < 10; i++) {
-        for (const key in cacheTests) {
-            if (actives.includes(key)) {
-                cacheTests[key](cacheContext, utils)
-            }
+
+    for (const key in cacheTests) {
+        if (actives.includes(key)) {
+            cacheTests[key](cacheContext, utils)
         }
+    }
+}
+
+function multipleCall (count, callback) {
+    for (let i = 0; i < count; i++) {
+        callback()
     }
 }
 

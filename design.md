@@ -21,7 +21,6 @@
 #### 文本类型
 
 + text 中文文本5个字符
-+ word 默认3-5个中文
 + sentence 句子，默认
 + paragraph 段落
 
