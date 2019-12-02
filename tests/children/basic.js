@@ -46,10 +46,22 @@ module.exports = function ({ basic }, { tests, test, assert }) {
             assert.isString(value)
             assert.isLength(value, 5)
         })
+        test('basic.string(length)', () => basic.string(8), (value) => { // 字符串，默认5个字符
+            assert.isString(value)
+            assert.isLength(value, 8)
+        })
 
-        test('basic.range(m, n)', basic.range(10, 15), (value) => { // 返回一个区间数组[m, n]
-            assert.isArray(value)
-            assert.isEqual(value, [ 10, 11, 12, 13, 14, 15 ])
+        test('basic.string(length, type)', () => {
+            let value = basic.string(3, 'string')
+
+            assert.isString(value)
+            assert.isLength(value, 3)
+            assert.isMatch(value, /^[a-z]+$/i)
+
+            value = basic.string(3, 'number')
+            assert.isString(value)
+            assert.isLength(value, 3)
+            assert.isMatch(value, /^\d+$/i)
         })
     })
 }

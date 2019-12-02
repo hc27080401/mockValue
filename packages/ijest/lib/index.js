@@ -33,24 +33,35 @@ const utils = {
 
 module.exports = ijest
 
-function ijest ({ context = {}, tests = {}, actives = '' }) {
+function ijest ({ context = {}, tests = {}, asserts = {}, actives = '' }) {
     Object.assign(cacheContext, context)
-    add(tests)
-    start(actives)
+    addTests(tests)
+    addAsserts(asserts)
+    startTest(actives)
 }
 
-function add (name, test) {
+function addTests (name, test) {
     if (typeof name === 'object') {
         const myTests = name
         for (const key in myTests) {
-            add(key, myTests[key])
+            addTests(key, myTests[key])
         }
         return
     }
     cacheTests[name] = test
 }
 
-function start (actives) {
+function addAsserts (asserts) {
+    const { assert } = utils
+    for (const key in asserts) {
+        if (key in utils) {
+            throw Error(`系统中已存在assert.${key}`)
+        }
+        assert[key] = asserts[key]
+    }
+}
+
+function startTest (actives) {
     const { actived, a } = parseArgv()
 
     if (actived && !actived.isShort) {

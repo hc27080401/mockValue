@@ -1,4 +1,3 @@
-const isText = (value) => /^[\u4e00-\u9fa5]+$/.test(value) // 判断是否中文
 
 module.exports = function ({ name }, { tests, test, assert }) {
     tests('name', () => {
@@ -6,12 +5,18 @@ module.exports = function ({ name }, { tests, test, assert }) {
             assert.isString(value)
             assert.isTrue(value.length >= 2)
             assert.isTrue(value.length <= 3)
-            assert.isTrue(isText(value))
+            assert.isText(value)
         })
 
-        test('name.familyName()', name.familyName(), (value) => {
+        test('name.familyName()', () => name.familyName(), (value) => {
             assert.isString(value)
             assert.isLength(value, 1)
+            assert.isText(value)
+        })
+
+        test('name.firstName()', () => name.firstName(), (value) => {
+            assert.isString(value)
+            assert.isText(value)
         })
     })
 }
