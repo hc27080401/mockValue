@@ -39,12 +39,21 @@ module.exports = {
     isBe (value1, value2) {
         expect(value1).toBe(value2)
     },
-    isLength (value, length) {
-        expect(typeof value === 'string' || typeof value === 'number').toBe(true)
-        expect(String(value).length === length).toBe(true)
+    isLength (value, min, max) {
+        expect(typeof value === 'string' || typeof value === 'number' || Array.isArray(value)).toBe(true)
+        const valueLength = typeof value === 'number' ? String(value).length : value.length
+        if (max > min) {
+            expect(valueLength >= min).toBe(true)
+            expect(valueLength <= max).toBe(true)
+        } else {
+            expect(valueLength).toBe(min)
+        }
     },
     isMatch (value, regexp) {
         expect(typeof value === 'string' || typeof value === 'number').toBe(true)
         expect(regexp.test(String(value))).toBe(true)
+    },
+    isBelong (value, list) {
+        expect(list.includes(value)).toBe(true)
     },
 }

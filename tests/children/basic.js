@@ -62,6 +62,11 @@ module.exports = function ({ basic }, { tests, test, assert }) {
             assert.isString(value)
             assert.isLength(value, 3)
             assert.isMatch(value, /^\d+$/i)
+
+            value = basic.string(6, 'hex')
+            assert.isString(value)
+            assert.isLength(value, 6)
+            assert.isMatch(value, /^[A-Z\d]+$/)
         })
     })
 }
