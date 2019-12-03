@@ -58,17 +58,16 @@ module.exports = function ({ address }, { tests, test, assert }) {
             assert.isLength(value1, 2)
             assert.isNumberString(value1[0])
             assert.isNumberString(value1[1])
-
             const value2 = address.fullcity('text')
             assert.isString(value2)
 
-            const value3 = assert.fullcity('data')
+            const value3 = address.fullcity('data')
             assert.isArray(value3)
             assert.isLength(value3, 2)
             isAreaData(value3[0])
             isAreaData(value3[1])
 
-            const value4 = assert.fullcity('textArray')
+            const value4 = address.fullcity('textArray')
             assert.isArray(value4)
             assert.isLength(value4, 2)
             assert.isString(value4[0])
@@ -125,8 +124,8 @@ module.exports = function ({ address }, { tests, test, assert }) {
         })
 
         test('address.zip()', () => address.zip(), value => {
-            value.isNumberString(value)
-            // value.isLength(value, )
+            assert.isNumberString(value)
+            assert.isLength(value, 6)
         })
     })
 }

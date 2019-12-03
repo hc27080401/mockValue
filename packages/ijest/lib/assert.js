@@ -30,6 +30,9 @@ module.exports = {
     isNumber (value) {
         expect(typeof value === 'number' && !isNaN(value)).toBe(true)
     },
+    isObject (value) {
+        return value && typeof value === 'object'
+    },
     isString (value) {
         expect(typeof value).toBe('string')
     },
