@@ -92,7 +92,7 @@ function multipleCall (count, callback) {
 function parseArgv () {
     const params = {}
     process.argv.forEach(arg => {
-        const matches = arg.match(/-(-)?(\w+)(?:=(.+))?/)
+        const matches = arg.match(/^-(-)?(\w+)(?:=(.+))?/)
         if (matches) {
             const [ , notShort, key, value ] = matches
             params[key] = { isShort: !notShort, value: value.split(/,\s*/) }

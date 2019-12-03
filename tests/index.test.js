@@ -8,6 +8,7 @@ ijest({
         name: require('../lib/mockValue/name'),
         text: require('../lib/mockValue/text'),
         web: require('../lib/mockValue/web'),
+        id: require('../lib/mockValue/id'),
     },
     tests: {
         utils: require('./children/utils'),
@@ -15,6 +16,7 @@ ijest({
         name: require('./children/name'),
         text: require('./children/text'),
         web: require('./children/web'),
+        id: require('./children/id'),
     },
     asserts: {
         isText: (value) => { // 判断是否纯中文组成的字符串
