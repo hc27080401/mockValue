@@ -25,7 +25,7 @@ module.exports = function ({ id }, { tests, test, assert }) {
             assert.isMatch(value, /^\w{8}-(\w{4}-){3}\w{12}$/)
         })
 
-        test('id.mobile()', () => id.module(), (value) => {
+        test('id.mobile()', () => id.mobile(), (value) => {
             assert.isString(value)
             assert.isLength(value, 11)
             assert.isMatch(value, /^1[3-9]\d{9}$/)
@@ -33,9 +33,14 @@ module.exports = function ({ id }, { tests, test, assert }) {
 
         test('id.qq()', () => id.qq(), (value) => {
             assert.isString(value)
-            assert.isTrue(value.length >= 5)
-            assert.isTrue(value.length <= 11)
-            assert.isMatch(value, /^[1-9]\d{10}$/)
+            assert.isLength(value, 5, 12)
+            assert.isMatch(value, /^[1-9]\d{4,11}$/)
+        })
+
+        test('id.qq(length)', () => id.qq(8), value => {
+            assert.isString(value)
+            assert.isLength(value, 8)
+            assert.isMatch(value, /^[1-9]\d{7}$/)
         })
 
         test('id.user()', () => id.user(), (value) => {
@@ -52,8 +57,8 @@ module.exports = function ({ id }, { tests, test, assert }) {
 
         test('id.password()', () => id.password(), value => {
             assert.isString(value)
-            assert.isLength(value, 16)
-            assert.isMatch(/^\S+$/)
+            assert.isLength(value, 12)
+            assert.isMatch(value, /^\S+$/)
         })
         test('id.password(length)', () => id.password(10), value => {
             assert.isString(value)

@@ -12,7 +12,7 @@ ijest({
         date: require('../lib/mockValue/date'),
         image: require('../lib/mockValue/image'),
         color: require('../lib/mockValue/color'),
-        address: { region () {}, province () {}, city () {}, country () {} },
+        address: require('../lib/mockValue/address'),
     },
     tests: {
         utils: require('./children/utils'),
