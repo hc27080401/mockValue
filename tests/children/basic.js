@@ -26,10 +26,21 @@ module.exports = function ({ basic }, { tests, test, assert }) {
             assert.isTrue(value <= 100)
         })
 
-        test('basic.integer(m, n)', () => basic.integer(-100, 100), (value) => { // 随机获取区间 [m, n] 之间的整数
+        test('basic.integer(-m, -n)', () => basic.integer(-200, -100), (value) => { // 随机获取区间 [m, n] 之间的整数
+            assert.isNumber(value)
+            assert.isTrue(value >= -200)
+            assert.isTrue(value <= -100)
+        })
+
+        test('basic.integer(-m, n)', () => basic.integer(-100, 100), (value) => { // 随机获取区间 [m, n] 之间的整数
             assert.isNumber(value)
             assert.isTrue(value >= -100)
             assert.isTrue(value <= 100)
+        })
+        test('basic.integer(m, n)', () => basic.integer(100, 200), (value) => { // 随机获取区间 [m, n] 之间的整数
+            assert.isNumber(value)
+            assert.isTrue(value >= 100)
+            assert.isTrue(value <= 200)
         })
 
         test('basic.decimal()', () => basic.decimal(), (value) => { // 随机获取2位小数的大于0的数字

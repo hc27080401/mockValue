@@ -1,6 +1,6 @@
 {
   "name": "@smartx/mock-value",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "repository": "https://github.com/smartx-work/mockValue.git",
   "author": "sschen86 <sschen86@163.com>",
