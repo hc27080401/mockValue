@@ -1,5 +1,5 @@
 {
-  "name": "mock-value",
+  "name": "@smartx/mock-value",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/smartx-work/mockValue.git",
