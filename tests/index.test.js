@@ -42,4 +42,5 @@ ijest({
             expect(/^\d+$/.test(value)).toBe(true)
         },
     },
+    defaultNum: 10,
 })

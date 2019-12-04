@@ -155,5 +155,10 @@ module.exports = function ({ date }, { tests, test, assert }) {
             ].join('')
             assert.isBe(value, nowTime)
         })
+
+        test('date.day()', () => date.day(), value => {
+            assert.isString(value)
+            assert.isBelong(value, [ '周一', '周二', '周三', '周四', '周五', '周六', '周日' ])
+        })
     })
 }

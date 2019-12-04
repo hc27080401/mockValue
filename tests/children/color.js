@@ -25,7 +25,7 @@ module.exports = function ({ color }, { tests, test, assert }) {
         test('color.rgba()', () => color.rgba(), value => {
             assert.isString(value)
             assert.isLength(value, 13, 22)
-            assert.isMatch(value, /^rgba\(\d{1,3},\d{1,3},\d{1,3},0(\.\d\d?)?\)$/)
+            assert.isMatch(value, /^rgba\(\d{1,3},\d{1,3},\d{1,3},(1|0(\.\d\d?)?)\)$/)
         })
     })
 }

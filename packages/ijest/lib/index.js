@@ -1,7 +1,7 @@
 const assert = require('./assert')
 const cacheTests = {}
 const cacheContext = { ijest }
-const defaultMultipleCallNum = 10
+let defaultMultipleCallNum = 10
 const utils = {
     assert,
     tests (title, callback) {
@@ -33,7 +33,8 @@ const utils = {
 
 module.exports = ijest
 
-function ijest ({ context = {}, tests = {}, asserts = {}, actives = '' }) {
+function ijest ({ context = {}, tests = {}, asserts = {}, actives = '', defaultNum = 10 }) {
+    defaultMultipleCallNum = defaultNum // 设置默认多次测试的次数
     Object.assign(cacheContext, context)
     addTests(tests)
     addAsserts(asserts)
