@@ -45,7 +45,7 @@
 #### 姓名
 
 + name 中文姓名
-+ firstName 名字
++ firstname 名字
 + lastName 姓氏 
 
 #### 颜色
@@ -56,7 +56,7 @@
 
 #### 其他
 
-+ cardNo 身份证号码
++ cardno 身份证号码
 + qq qq号码
 
 #### 富媒体类型

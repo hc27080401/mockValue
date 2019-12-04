@@ -1,1 +1,1 @@
-module.exports = require('./lib/MockValue')
+module.exports = require('./lib')

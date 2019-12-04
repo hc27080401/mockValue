@@ -1,15 +1,9 @@
-const MockValue = require('../index')
+const mockValue = require('../index')
 
-
-const ijest = require('../packages/ijest')
-
-ijest({
-    context: {
-        data: { a: 1, b: 2 },
-    },
-    tests: {
-        basic: require('./basic'),
-    },
-
-    actives: '',
+console.info({
+    fullstreet: mockValue.fullstreet(),
+    time: mockValue.time(),
+    datetime: mockValue.datetime(),
+    cardno: mockValue.cardno(),
+    name: mockValue.name(),
 })

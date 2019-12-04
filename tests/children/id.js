@@ -1,21 +1,21 @@
 module.exports = function ({ id }, { tests, test, assert }) {
     tests('id', () => {
-        test('id.cardNo()', () => id.cardNo(), (value) => {
+        test('id.cardno()', () => id.cardno(), (value) => {
             assert.isString(value)
             assert.isLength(value, 18)
-            assert.isCardNo(value)
+            assert.iscardno(value)
         })
-        test('id.cardNo(birthday)', () => {
-            const value1 = id.cardNo(20191212) // 年月日
+        test('id.cardno(birthday)', () => {
+            const value1 = id.cardno(20191212) // 年月日
             assert.isString(value1)
             assert.isLength(value1, 18)
-            assert.isCardNo(value1)
+            assert.iscardno(value1)
             assert.isTrue(value1.indexOf('20191212') === 6)
 
-            const value2 = id.cardNo(2019) // 年
+            const value2 = id.cardno(2019) // 年
             assert.isString(value2)
             assert.isLength(value2, 18)
-            assert.isCardNo(value2)
+            assert.iscardno(value2)
             assert.isTrue(value2.indexOf('2019') === 6)
         })
 

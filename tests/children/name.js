@@ -8,13 +8,13 @@ module.exports = function ({ name }, { tests, test, assert }) {
             assert.isText(value)
         })
 
-        test('name.familyName()', () => name.familyName(), (value) => {
+        test('name.familyname()', () => name.familyname(), (value) => {
             assert.isString(value)
             assert.isLength(value, 1)
             assert.isText(value)
         })
 
-        test('name.firstName()', () => name.firstName(), (value) => {
+        test('name.firstname()', () => name.firstname(), (value) => {
             assert.isString(value)
             assert.isText(value)
         })
