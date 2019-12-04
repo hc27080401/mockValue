@@ -1704,6 +1704,13 @@ ignore@^5.1.1:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.1.4.tgz#84b7b3dbe64552b6ef0eca99f6743dbec6d97adf"
   integrity sha512-MzbUSahkTW1u7JpKKjY7LCARd1fU5W2rLdxlM4kdkayuCwZImjkpluF9CM1aLewYJguPDqewLam18Y6AU69A8A==
 
+ijest@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ijest/-/ijest-1.0.0.tgz#83d83057d6f47e899d59ab6c8d561d37d71da117"
+  integrity sha512-v1LgNOtEV62DcxEsfFQD4BJGmJFSGemaoSaqnN5d3LagmcmdvMX2V8x82IkmYNJZAKiue7tikwRMw7JKNNvesQ==
+  dependencies:
+    jest "^24.8.0"
+
 import-fresh@^3.0.0:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-3.2.1.tgz#633ff618506e793af5ac91bf48b72677e15cbe66"

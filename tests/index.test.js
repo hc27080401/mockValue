@@ -1,4 +1,4 @@
-const ijest = require('../packages/ijest')
+const ijest = require('ijest')
 
 ijest({
     context: {

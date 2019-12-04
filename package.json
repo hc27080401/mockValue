@@ -12,6 +12,7 @@
   "dependencies": {},
   "devDependencies": {
     "@smartx/eslint-config-tentative": "^1.2.0",
+    "ijest": "^1.0.0",
     "jest": "^24.8.0"
   }
 }
